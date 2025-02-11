@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Echo</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/index.css">
-    <link rel="icon" type="image/x-icon" href="../static/img/Echo.ico">
-    <script type="text/javascript" src="../static/js/index.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for("static", filename="css/index.css") }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for("static", filename="img/Echo.ico") }}">
+    <script type="text/javascript" src="{{ url_for("static", filename="js/index.js") }}" defer></script>
 </head>
 <body>
 <div class="horizontalCenter verticalCenter">
-    <img src="../static/img/GPTWeb.jpg" alt="Chat GPT Meme" id="mainImage">
+    <img src="{{ url_for("static", filename="img/GPTWeb.jpg") }}" alt="Chat GPT Meme" id="mainImage">
 </div>
 </body>
 </html>
