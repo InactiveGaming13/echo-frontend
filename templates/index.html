@@ -7,7 +7,7 @@
     <link rel="icon" type="image/x-icon" href="{{ url_for("static", filename="img/Echo.ico") }}">
     <script type="text/javascript" src="{{ url_for("static", filename="js/index.js") }}" defer></script>
     <script type="text/javascript" defer>
-        let source = new EventSource("{{ url_for('sse') }}");
+        let source = new EventSource("{{ url_for('sse.stream') }}");
 
         source.addEventListener("message", function(event) {
             let data = JSON.parse(event.data);
