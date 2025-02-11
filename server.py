@@ -1,5 +1,5 @@
 from flask import Flask, Blueprint, render_template as renderTemplate, request, redirect, url_for as urlFor
-from flask_socketio import SocketIO, emit
+# from flask_socketio import SocketIO, emit
 from flask_sse import sse
 
 # Create the Flask app
@@ -17,7 +17,7 @@ app.register_blueprint(sse, url_prefix="/stream")
 app.register_blueprint(static, url_prefix="/static")
 
 # Create the SocketIO object
-socketio = SocketIO(app)
+# socketio = SocketIO(app)
 
 
 # Define the route for the index page
@@ -26,6 +26,14 @@ def index():
     return renderTemplate("index.html")
 
 
+# Define the route for the stream page
+@app.route("/sendstream")
+def send_stream():
+    sse.publish({"message": "Hello, world!"}, type="message")
+    return "Message sent!"
+
+
 # Start the Flask app
 if __name__ == "__main__":
-    socketio.run(app, host="127.0.0.1", port=8050, allow_unsafe_werkzeug=True)
+    # socketio.run(app, host="127.0.0.1", port=8050, allow_unsafe_werkzeug=True)
+    app.run(host="127.0.0.1", port=8050, debug=True)
