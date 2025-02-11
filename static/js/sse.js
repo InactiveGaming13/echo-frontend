@@ -1,4 +1,4 @@
-let source = new EventSource("{{ url_for('sse.stream') }}");
+let source = new EventSource("/stream");
 
 source.addEventListener("message", function(event) {
     let data = JSON.parse(event.data);
