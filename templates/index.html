@@ -34,6 +34,18 @@
     <h1>Echo</h1>
 </div>
 
+{% if success %}
+    <div class="info success">
+        <p>{{ success }}</p>
+    </div>
+{% endif %}
+
+{% if error %}
+    <div class="info error">
+        <p>{{ error }}</p>
+    </div>
+{% endif %}
+
 <div class="about">
     <h2>About</h2>
     <p>Echo is an open-source chat platform designed from the ground up for gamers, by gamers.</p>
