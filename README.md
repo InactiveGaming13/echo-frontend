@@ -1,5 +1,5 @@
-# echo-frontend
-This is the official frontend repository for the echo app.
+# Echo Frontend
+This is the official frontend repository for the Echo app.
 
 It is designed to interface with the [Echo API](https://github.com/Yuki-42/echo-api).
 
@@ -16,19 +16,21 @@ you can visit the [official website](https://echo.disbroad.com).
 
 ### Linux
 1. Clone the repository
-2. Run `python -m venv venv` to create a virtual environment
-3. Run `source venv/bin/activate` to activate the virtual environment
-4. Run `pip install -r requirements.txt` to install the dependencies
-5. Run `python server.py` to start the server
-6. Open `http://localhost:5000` in your browser
+2. Run `cd server` to navigate to the server directory
+3. Run `python -m venv venv` to create a virtual environment
+4. Run `source venv/bin/activate` to activate the virtual environment
+5. Run `pip install -r requirements.txt` to install the dependencies
+6. Run `python server.py` to start the server
+7. Open `http://localhost:5000` in your browser
 
 ### Windows
 1. Clone the repository
-2. Run `python -m venv venv` to create a virtual environment
-3. Run `venv\Scripts\activate` to activate the virtual environment
-4. Run `pip install -r requirements.txt` to install the dependencies
-5. Run `python server.py` to start the server
-6. Open `http://localhost:5000` in your browser
+2. Run `cd server` to navigate to the server directory
+3. Run `python -m venv venv` to create a virtual environment
+4. Run `venv\Scripts\activate` to activate the virtual environment
+5. Run `pip install -r requirements.txt` to install the dependencies
+6. Run `python server.py` to start the server
+7. Open `http://localhost:5000` in your browser
 
 ---
 
