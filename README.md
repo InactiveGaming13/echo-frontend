@@ -21,7 +21,7 @@ you can visit the [official website](https://echo.disbroad.com).
 4. Run `source venv/bin/activate` to activate the virtual environment
 5. Run `pip install -r requirements.txt` to install the dependencies
 6. Run `python server.py` to start the server
-7. Open `http://localhost:5000` in your browser
+7. Open `http://localhost:8050` in your browser
 
 ### Windows
 1. Clone the repository
@@ -30,7 +30,7 @@ you can visit the [official website](https://echo.disbroad.com).
 4. Run `venv\Scripts\activate` to activate the virtual environment
 5. Run `pip install -r requirements.txt` to install the dependencies
 6. Run `python server.py` to start the server
-7. Open `http://localhost:5000` in your browser
+7. Open `http://localhost:8050` in your browser
 
 ---
 
