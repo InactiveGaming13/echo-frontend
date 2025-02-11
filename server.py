@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint, render_template as renderTemplate, request, redirect, url_for as urlFor
+from flask import Flask, Blueprint, render_template, request, redirect, url_for as urlFor
 from flask_socketio import SocketIO, emit
 
 # Create the Flask app
@@ -17,6 +17,13 @@ app.register_blueprint(static, url_prefix="/static")
 socketio = SocketIO(app)
 
 
+def renderTemplate(template: str, error: str | None = None, success: str | None = None) -> str:
+    return render_template(template, error=error, success=success, account={
+        "username": "User",
+        "email": "test@provider.com",
+        "userID": "1234567890"})
+
+
 # Define the route for the index page
 @app.route("/")
 def index():
@@ -26,4 +33,3 @@ def index():
 # Start the Flask app
 if __name__ == "__main__":
     socketio.run(app, host="127.0.0.1", port=8050, debug=True, allow_unsafe_werkzeug=True)
-    # app.run(host="127.0.0.1", port=8050, debug=True)
