@@ -6,7 +6,18 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for("static", filename="css/index.css") }}">
     <link rel="icon" type="image/x-icon" href="{{ url_for("static", filename="img/Echo.ico") }}">
     <script type="text/javascript" src="{{ url_for("static", filename="js/index.js") }}" defer></script>
-    <script type="text/javascript" src="{{ url_for("static", filename="js/sse.js") }}" defer></script>
+    <script type="text/javascript" defer>
+        let source = new EventSource("{{ url_for('sse') }}");
+
+        source.addEventListener("message", function(event) {
+            let data = JSON.parse(event.data);
+            alert(data.message);
+        }, false);
+
+        source.addEventListener("error", function(event) {
+            console.error("Failed to connect to event stream. Is the server running?");
+        }, false);
+    </script>
 </head>
 <body>
 <div class="horizontalCenter verticalCenter">
