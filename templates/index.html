@@ -2,26 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Echo</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for("static", filename="css/index.css") }}">
     <link rel="icon" type="image/x-icon" href="{{ url_for("static", filename="img/Echo.ico") }}">
     <script type="text/javascript" src="{{ url_for("static", filename="js/index.js") }}" defer></script>
-    <script type="text/javascript" defer>
-        let source = new EventSource("{{ url_for('sse.stream') }}");
-
-        source.addEventListener("message", function(event) {
-            let data = JSON.parse(event.data);
-            alert(data.message);
-        }, false);
-
-        source.addEventListener("error", function(event) {
-            console.error("Failed to connect to event stream. Is the server running?");
-        }, false);
-    </script>
+    <script type="text/javascript" src="{{ url_for("static", filename="js/navbarHamburger.js") }}" defer></script>
 </head>
 <body>
-<div class="horizontalCenter verticalCenter">
-    <img src="{{ url_for("static", filename="img/GPTWeb.jpg") }}" alt="Chat GPT Meme" id="mainImage">
+<header>
+    <nav class="navbar">
+        <a class="navbarBrand" href="{{ url_for("index") }}"><img src="{{ url_for("static", filename="img/Echo.png") }}"></a>
+        <ul class="navbarMenu">
+            <li class="navbarItem"><a class="navbarLink">App</a></li>
+            <li class="navbarItem"><a class="navbarLink">Login</a></li>
+            <li class="navbarItem"><a class="navbarLink">Register</a></li>
+        </ul>
+        <div class="navbarHamburger">
+            <div class="navbarHamburgerLine"></div>
+            <div class="navbarHamburgerLine"></div>
+            <div class="navbarHamburgerLine"></div>
+        </div>
+    </nav>
+</header>
+<div class="horizontalCenter">
+    <h1>Echo</h1>
+</div>
+
+<div class="about">
+    <h2>About</h2>
+    <p>Echo is an open-source chat platform designed from the ground up for gamers, by gamers.</p>
 </div>
 </body>
 </html>
