@@ -1,3 +1,4 @@
 flask==3.1.0
 flask-sse==1.0.0
 flask-socketio==5.5.1
+gunicorn==23.0.0
