@@ -2,9 +2,12 @@
 
 @media (prefers-color-scheme: light) {
     :root {
-        --backround-accent-primary: #5d77ec;
+        --backround-accent-primary: #4c69ec;
         --backround-accent-secondary: #959fcb;
+        --primary-color: #8aa5f9;
+        --secondary-color: #5264b0;
         --text-color: #000;
+        --text-filter: invert(0%) sepia(95%) saturate(0%) hue-rotate(145deg) brightness(101%) contrast(104%);
     }
     color-scheme: light;
 }
@@ -16,8 +19,13 @@
         --primary-color: #2e469d;
         --secondary-color: #0e1a4f;
         --text-color: #fff;
+        --text-filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%);
     }
     color-scheme: dark;
+}
+
+html {
+    background-image: linear-gradient(var(--backround-accent-primary), var(--backround-accent-secondary), var(--backround-accent-primary));
 }
 
 html, body {
@@ -27,7 +35,6 @@ html, body {
     min-width: 100vw;
     font-family: 'Ubuntu', sans-serif;
     color: var(--text-color);
-    background-image: linear-gradient(var(--backround-accent-primary), var(--backround-accent-secondary));
 }
 
 h1 {
@@ -49,14 +56,6 @@ h2 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-.about {
-    margin: 40vh 20vw;
-    border-width: 5px;
-    border-style: solid;
-    border-image: linear-gradient(var(--primary-color), var(--secondary-color)) 1;
-    padding: 15px;
 }
 
 .navbar {
