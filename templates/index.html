@@ -10,9 +10,9 @@
 
 {% block content %}
 <div class="horizontalCenter">
-    <h1>Echo</h1>
+    <h1>Welcome to Echo</h1>
+    <p>Sign in or register to start chatting with your friends!</p>
 </div>
-
 {% if success %}
     <div class="info success">
         <p>{{ success }}</p>
@@ -25,8 +25,17 @@
     </div>
 {% endif %}
 
-<div class="about">
+<div class="about horizontalCenter">
+    <hr>
     <h2>About</h2>
     <p>Echo is an open-source chat platform designed from the ground up for gamers, by gamers.</p>
+    <hr>
+    <h2>Feel like helping out?</h2>
+    <p>We are always open to people opening pull requests on our <a href="https://github.com/InactiveGaming13/echo-frontend">official repository</a>.</p>
+    <hr>
+</div>
+
+<div class="horizontalCenter scrollIndicator">
+    <img src="{{ url_for("static", filename="img/downArrow.svg") }}" alt="Scroll Down" width="50" height="50">
 </div>
 {% endblock %}
