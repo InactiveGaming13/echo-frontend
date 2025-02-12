@@ -27,10 +27,28 @@ def renderTemplate(template: str, error: str | None = None, success: str | None 
         return render_template(template, error=error, success=success)
 
     # Render the template with the account information if the client is logged in
-    return render_template(template, error=error, success=success, account={
-        "username": "User",
-        "email": "test@provider.com",
-        "userID": "1234567890"})
+    return render_template(
+        template,
+        error=error,
+        success=success,
+        account={
+            "username": "User",
+            "email": "test@provider.com",
+            "userID": "1234567890"
+        }
+    )
+
+
+def renderError(errorCode: int = 500,
+                errorTitle: str = "500 - Internal Server Error",
+                errorDetails: str = "It seems our server has encountered and error!"
+                ) -> str:
+    return render_template(
+        "errorPage.html",
+        errorCode=errorCode,
+        errorTitle=errorTitle,
+        errorDetails=errorDetails
+    )
 
 
 # Define the route for the index page
@@ -116,10 +134,13 @@ def appPage() -> str | Response:
 # Define the route for the 404 page
 @app.errorhandler(404)
 def notFound(e: Exception) -> str:
-    print(e)
-    return renderTemplate("404.html")
+    return renderError(
+        errorCode=404,
+        errorTitle="404 - Not Found",
+        errorDetails="Uh oh! It seems you have stumbled upon an unknown URL!"
+    )
 
 
 # Start the Flask app
 if __name__ == "__main__":
-    socketio.run(app, host="127.0.0.1", port=8050, debug=True, allow_unsafe_werkzeug=True)
+    socketio.run(app, host="0.0.0.0", port=8050, debug=True, allow_unsafe_werkzeug=True)
