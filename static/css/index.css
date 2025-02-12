@@ -33,8 +33,8 @@
 .scrollIndicator img {
     max-width: 50px;
     max-height: 50px;
-    width: 2vw;
-    height: 5vh;
+    width: 4vw;
+    height: 10vh;
     cursor: pointer;
     transition: 0.3s;
     filter: var(--text-filter);
