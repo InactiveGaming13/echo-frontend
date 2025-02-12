@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --backround-accent-primary: #5d77ec;
+        --backround-accent-secondary: #959fcb;
+        --text-color: #000;
+    }
+    color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --backround-accent-primary: #151824;
+        --backround-accent-secondary: #141e47;
+        --primary-color: #2e469d;
+        --secondary-color: #0e1a4f;
+        --text-color: #fff;
+    }
+    color-scheme: dark;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    min-width: 100vw;
+    font-family: 'Ubuntu', sans-serif;
+    color: var(--text-color);
+    background-image: linear-gradient(var(--backround-accent-primary), var(--backround-accent-secondary));
+}
+
+h1 {
+    font-size: 2.5em;
+    font-weight: 400;
+}
+
+h2 {
+    font-size: 2em;
+    font-weight: 400;
+}
+
+.horizontalCenter {
+    text-align: center;
+}
+
+.verticalCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.about {
+    margin: 40vh 20vw;
+    border-width: 5px;
+    border-style: solid;
+    border-image: linear-gradient(var(--primary-color), var(--secondary-color)) 1;
+    padding: 15px;
+}
+
+.navbar {
+    min-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+}
+
+.navbarMenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+    list-style: none;
+}
+
+.navbarBrand > img {
+    max-height: 40px;
+    max-width: 40px;
+    cursor: pointer;
+}
+
+.navbarLink {
+    transition: 0.5s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.navbarLink:hover {
+    color: var(--primary-color);
+}
+
+.navbarHamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.navbarHamburgerLine {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background: var(--text-color);
+}
+
+@media (max-width: 500px) {
+    .navbarHamburger {
+        display: block;
+    }
+
+    .navbarHamburger.active .navbarHamburgerLine:nth-child(2) {
+        opacity: 0;
+    }
+
+    .navbarHamburger.active .navbarHamburgerLine:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .navbarHamburger.active .navbarHamburgerLine:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .navbarMenu {
+        position: fixed;
+        left: 100%;
+        top: 70px;
+        gap: 0;
+        flex-direction: column;
+        background: var(--backround-accent-primary);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .navbarItem {
+        margin: 16px 0;
+    }
+
+    .navbarMenu.active {
+        left: -6%;
+    }
+}
+
+.info {
+    position: absolute;
+    top: 175px;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+}
+
+.success {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.error {
+    background-color: #f44336;
+    color: black;
+}

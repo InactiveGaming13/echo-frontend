@@ -1,35 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Echo</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for("static", filename="css/index.css") }}">
-    <link rel="icon" type="image/x-icon" href="{{ url_for("static", filename="img/Echo.ico") }}">
-    <script type="text/javascript" src="{{ url_for("static", filename="js/index.js") }}" defer></script>
-    <script type="text/javascript" src="{{ url_for("static", filename="js/navbarHamburger.js") }}" defer></script>
-</head>
-<body>
-<header>
-    <nav class="navbar">
-        <a class="navbarBrand" href="{{ url_for("index") }}"><img src="{{ url_for("static", filename="img/Echo.png") }}"></a>
-        <ul class="navbarMenu">
-            {% if account == "" or account == None  %}
-                <li class="navbarItem"><a class="navbarLink">Login</a></li>
-                <li class="navbarItem"><a class="navbarLink">Register</a></li>
-            {% else %}
-                <li class="navbarItem"><a class="navbarLink">App</a></li>
-                <li class="navbarItem"><a class="navbarLink">Account</a></li>
-            {% endif %}
-        </ul>
-        <div class="navbarHamburger">
-            <div class="navbarHamburgerLine"></div>
-            <div class="navbarHamburgerLine"></div>
-            <div class="navbarHamburgerLine"></div>
-        </div>
-    </nav>
-</header>
+{% extends "_base.html" %}
+
+{% block title %}Echo{% endblock %}
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{{ url_for("static", filename="css/index.css") }}">
+{% endblock %}
+{% block scripts %}
+<script type="text/javascript" src="{{ url_for("static", filename="js/index.js") }}" defer></script>
+{% endblock %}
+
+{% block content %}
 <div class="horizontalCenter">
     <h1>Echo</h1>
 </div>
@@ -50,5 +29,4 @@
     <h2>About</h2>
     <p>Echo is an open-source chat platform designed from the ground up for gamers, by gamers.</p>
 </div>
-</body>
-</html>
+{% endblock %}
