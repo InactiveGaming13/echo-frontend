@@ -2,6 +2,7 @@
     margin: 350px 20vw;
     border: none;
     padding: 15px;
+    max-width: 95vw;
 }
 
 .about a {
@@ -14,12 +15,12 @@
 }
 
 .about hr{
-    margin: 35px 300px;
+    margin: 35px 15vw;
     color: var(--primary-color);
 }
 
 .about hr:last-child, .about hr:first-child{
-    margin: 35px 200px;
+    margin: 35px 10vw;
     color: var(--primary-color);
 }
 
@@ -30,8 +31,10 @@
 }
 
 .scrollIndicator img {
-    width: 50px;
-    height: 50px;
+    max-width: 50px;
+    max-height: 50px;
+    width: 2vw;
+    height: 5vh;
     cursor: pointer;
     transition: 0.3s;
     filter: var(--text-filter);
