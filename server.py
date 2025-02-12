@@ -83,7 +83,7 @@ def register() -> str:
 # Define the route for the account page
 @app.route("/account", methods=["GET", "POST"])
 def account() -> str:
-    # Check if the client is posting
+    # Check if the client is posting data
     if request.method == "POST":
         return renderTemplate("account.html", error="Server error: Could not update account!")
 
@@ -94,10 +94,30 @@ def account() -> str:
 # Define the route for the logout page
 @app.route("/logout")
 def logout() -> Response:
-    # Set the success cookie and redirect the client to the index page
+    # Create a response with a success cookie to inform the client that they have logged out
     response: Response = redirect(urlFor("index"))
     response.set_cookie("success", "Successfully logged out!")
     return response
+
+
+# Define the route for the app page
+@app.route("/app")
+def appPage() -> str | Response:
+    # Check if the client isn't logged in
+    if not request.cookies.get("userId"):
+        response: Response = redirect(urlFor("index"))
+        response.set_cookie("error", "You must be logged in to access the app!")
+        return response
+
+    # Render the app page if the client is logged in
+    return renderTemplate("app.html", logged=True)
+
+
+# Define the route for the 404 page
+@app.errorhandler(404)
+def notFound(e: Exception) -> str:
+    print(e)
+    return renderTemplate("404.html")
 
 
 # Start the Flask app
