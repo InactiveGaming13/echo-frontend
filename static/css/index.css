@@ -1,0 +1,38 @@
+.about {
+    margin: 30vh 20vw;
+    border: none;
+    padding: 15px;
+}
+
+.about a {
+    color: var(--text-color);
+    transition: 0.3s;
+}
+
+.about a:hover {
+    color: var(--primary-color);
+}
+
+.about hr{
+    margin: 35px 300px;
+    color: var(--primary-color);
+}
+
+.about hr:last-child, .about hr:first-child{
+    margin: 35px 200px;
+    color: var(--primary-color);
+}
+
+.scrollIndicator {
+    position: absolute;
+    bottom: 20px;
+    right: 25px;
+}
+
+.scrollIndicator img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+    filter: var(--text-filter);
+}
