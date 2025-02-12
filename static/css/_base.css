@@ -51,6 +51,15 @@ h2 {
     text-align: center;
 }
 
+a {
+    color: var(--text-color);
+    transition: 0.3s;
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
 .verticalCenter {
     position: absolute;
     top: 50%;
@@ -146,18 +155,7 @@ h2 {
 
 .info {
     position: absolute;
-    top: 175px;
     width: 100%;
     height: 50px;
     text-align: center;
-}
-
-.success {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.error {
-    background-color: #f44336;
-    color: black;
 }

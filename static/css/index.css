@@ -1,5 +1,5 @@
 .about {
-    margin: 30vh 20vw;
+    margin: 350px 20vw;
     border: none;
     padding: 15px;
 }
@@ -35,4 +35,20 @@
     cursor: pointer;
     transition: 0.3s;
     filter: var(--text-filter);
+}
+
+.title {
+    top: 150px;
+}
+
+.success {
+    background-color: #4CAF50;
+    color: white;
+    top: 250px;
+}
+
+.error {
+    background-color: #f44336;
+    color: black;
+    top: 300px;
 }
