@@ -107,7 +107,7 @@ h2 {
     background: var(--text-color);
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 500px) {
     .navbarHamburger {
         display: block;
     }
@@ -141,6 +141,24 @@ h2 {
     }
 
     .navbarMenu.active {
-        left: 0;
+        left: -6%;
     }
+}
+
+.info {
+    position: absolute;
+    top: 175px;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+}
+
+.success {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.error {
+    background-color: #f44336;
+    color: black;
 }
