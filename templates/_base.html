@@ -20,7 +20,7 @@
                 <li class="navbarItem"><a class="navbarLink" href="{{ url_for("login") }}">Login</a></li>
                 <li class="navbarItem"><a class="navbarLink" href="{{ url_for("register") }}">Register</a></li>
             {% else %}
-                <li class="navbarItem"><a class="navbarLink">App</a></li>
+                <li class="navbarItem"><a class="navbarLink" href="{{ url_for("appPage") }}">App</a></li>
                 <li class="navbarItem"><a class="navbarLink" href="{{ url_for("account") }}">Account</a></li>
             {% endif %}
         </ul>
