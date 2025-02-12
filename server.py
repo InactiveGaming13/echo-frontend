@@ -18,6 +18,8 @@ socketio = SocketIO(app)
 
 
 def renderTemplate(template: str, error: str | None = None, success: str | None = None) -> str:
+    if success and error:
+        raise ValueError("Cannot have both an error and a success message!")
     return render_template(template, error=error, success=success, account={
         "username": "User",
         "email": "test@provider.com",
