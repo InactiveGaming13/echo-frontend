@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --backround-accent-primary: #4c69ec;
+        --backround-accent-secondary: #959fcb;
+        --primary-color: #8aa5f9;
+        --secondary-color: #5264b0;
+        --text-color: #000;
+        --text-filter: invert(0%) sepia(95%) saturate(0%) hue-rotate(145deg) brightness(101%) contrast(104%);
+    }
+    color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --backround-accent-primary: #151824;
+        --backround-accent-secondary: #141e47;
+        --primary-color: #2e469d;
+        --secondary-color: #0e1a4f;
+        --text-color: #fff;
+        --text-filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%);
+    }
+    color-scheme: dark;
+}
+
+html {
+    background-image: linear-gradient(var(--backround-accent-primary), var(--backround-accent-secondary), var(--backround-accent-primary));
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    min-width: 100vw;
+    font-family: 'Ubuntu', sans-serif;
+    color: var(--text-color);
+}
+
+.horizontalCenter {
+    text-align: center;
+}
+
+.test {
+    position: absolute;
+    top: 50vh;
+    width: 100%;
+    text-align: center;
+}
