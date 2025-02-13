@@ -15,7 +15,7 @@ static: Blueprint = Blueprint("static", __name__, static_folder="static", static
 app.register_blueprint(static, url_prefix="/static")
 
 # Create the SocketIO object
-socketio: SocketIO = SocketIO(app)
+socketio: SocketIO = SocketIO(app, cors_allowed_origins="*")
 
 
 def renderTemplate(template: str | Template | list[str | Template], error: str | None = None, success: str | None = None, userId: str = "") -> str:
@@ -105,12 +105,12 @@ def index() -> str | Response:
         return response
 
     # Render the index page if no cookies exist
-    return renderTemplate("index.html")
+    return renderTemplate("index.html", userId=userId)
 
 
 # Define the route for the login page
 @app.route("/login", methods=["GET", "POST"])
-def login() -> Response:
+def login() -> str | Response:
     # Check if the client is posting data
     if request.method == "POST":
         redirectUri: Response = handleRedirectCookie(request)
@@ -121,6 +121,9 @@ def login() -> Response:
         response.set_cookie("success", "Successfully logged in")
         response.set_cookie("userId", "1234567890")
         return response
+
+    if request.cookies.get("userId"):
+        return renderTemplate("index.html", error="You are already logged in!", userId=request.cookies.get("userId"))
 
     response: Response = make_response(render_template("login.html", error=request.cookies.get("error")))
     response.set_cookie("error", "", expires=0)
@@ -140,13 +143,20 @@ def register() -> str:
 
 # Define the route for the account page
 @app.route("/account", methods=["GET", "POST"])
-def account() -> str:
+def account() -> str | Response:
     # Check if the client is posting data
     if request.method == "POST":
         return renderTemplate("account.html", error="Server error: Could not update account!")
 
+    userId: str = request.cookies.get("userId")
+
+    if not userId:
+        response: Response = handleRedirectCookie(request, "login", True, "account")
+        response.set_cookie("error", "You must be logged in to edit an account!")
+        return response
+
     # Render the account page if the client is not posting
-    return renderTemplate("account.html")
+    return renderTemplate("account.html", userId=userId)
 
 
 # Define the route for the logout page
