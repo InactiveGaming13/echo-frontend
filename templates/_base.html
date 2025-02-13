@@ -17,12 +17,14 @@
     <nav class="navbar">
         <a class="navbarBrand" href="{{ url_for("index") }}"><img src="{{ url_for("static", filename="img/Echo.png") }}"></a>
         <ul class="navbarMenu">
+            <li class="navbarItem"><a class="navbarLink" href="https://ko-fi.com/disbroad">Support Us</a></li>
             {% if account is undefined  %}
                 <li class="navbarItem"><a class="navbarLink" href="{{ url_for("login") }}">Login</a></li>
                 <li class="navbarItem"><a class="navbarLink" href="{{ url_for("register") }}">Register</a></li>
             {% else %}
                 <li class="navbarItem"><a class="navbarLink" href="{{ url_for("appPage") }}">App</a></li>
                 <li class="navbarItem"><a class="navbarLink" href="{{ url_for("account") }}">Account</a></li>
+                <li class="navbarItem"><a class="navbarLink" href="{{ url_for("logout") }}">Log Out</a></li>
             {% endif %}
         </ul>
         <div class="navbarHamburger">
