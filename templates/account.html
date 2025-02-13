@@ -1,0 +1,26 @@
+{% extends "_base.html" %}
+
+{% block title %}Echo Account{% endblock %}
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{{ url_for("static", filename="css/account.css") }}">
+{% endblock %}
+{% block scripts %}
+<script type="text/javascript" src="{{ url_for("static", filename="js/account.js") }}" defer></script>
+{% endblock %}
+
+{% block content %}
+<div class="horizontalCenter info title">
+    <h1>Account Modification</h1>
+</div>
+{% if success %}
+    <div class="info success">
+        <p>{{ success }}</p>
+    </div>
+{% endif %}
+
+{% if error %}
+    <div class="info error">
+        <p>{{ error }}</p>
+    </div>
+{% endif %}
+{% endblock %}
