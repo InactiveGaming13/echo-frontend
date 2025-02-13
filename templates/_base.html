@@ -17,7 +17,7 @@
     <nav class="navbar">
         <a class="navbarBrand" href="{{ url_for("index") }}"><img src="{{ url_for("static", filename="img/Echo.png") }}"></a>
         <ul class="navbarMenu">
-            <li class="navbarItem"><a class="navbarLink" href="https://ko-fi.com/disbroad">Support Us</a></li>
+            <li class="navbarItem"><a class="navbarLink" target="_blank" href="https://ko-fi.com/disbroad">Support Us</a></li>
             {% if account is undefined  %}
                 <li class="navbarItem"><a class="navbarLink" href="{{ url_for("login") }}">Login</a></li>
                 <li class="navbarItem"><a class="navbarLink" href="{{ url_for("register") }}">Register</a></li>
